@@ -10,8 +10,11 @@
   <div class="container">
   <header>
     <nav class="site-nav" aria-label="Main navigation">
+      <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
       <a class="brand" href="index.html">Home</a>
-      <ul class="nav-list">
+      <ul id="main-nav" class="nav-list">
         <li><a href="about.html">About Me</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="https://www.instagram.com/muhammed.mmdli1/" target="_blank" rel="noopener">Instagram</a></li>
@@ -75,6 +78,26 @@
   </div>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    (function(){
+      const nav = document.querySelector('.site-nav');
+      const toggle = nav && nav.querySelector('.nav-toggle');
+
+      function closeNav(){
+        nav.classList.remove('nav-open');
+        if(toggle) toggle.setAttribute('aria-expanded','false');
+      }
+      function openNav(){
+        nav.classList.add('nav-open');
+        if(toggle) toggle.setAttribute('aria-expanded','true');
+      }
+      if(toggle){
+        toggle.addEventListener('click', ()=> nav.classList.contains('nav-open') ? closeNav() : openNav());
+      }
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeNav(); });
+      document.addEventListener('click', (e)=>{ if(nav && nav.classList.contains('nav-open') && !nav.contains(e.target) && !toggle.contains(e.target)) closeNav(); });
+    })();
   </script>
   <script>
     // Section heading animation for in-page anchors (simplified)

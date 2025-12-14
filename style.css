@@ -14,6 +14,9 @@
     --bg-spot: radial-gradient(circle at 8% 10%, rgba(124,58,237,0.06), transparent 6%);
     --glass-bg: rgba(255,255,255,0.6);
     --glass-border: rgba(16,24,40,0.04);
+    --bio-bg: #f3f7ff; /* very light cool tint for the bio frame */
+    --bio-border: rgba(37,99,235,0.12);
+    --bio-text: #273444; /* slightly warmer/darker muted text for better contrast */
 }
 
 /* Reset & base */
@@ -23,6 +26,8 @@ body{margin:0;font-family:'Merriweather', system-ui, -apple-system, 'Segoe UI', 
 
 /* Utility */
 .container{max-width:1100px;margin:0 auto;padding:0 1rem}
+
+.container-inner{max-width:920px;margin:0 auto;padding:0 1rem}
 
 /* Header / Nav */
 .site-nav{display:flex;align-items:center;padding:1rem 0;background:var(--glass-bg);padding:0.8rem 1rem;border-radius:10px;backdrop-filter:blur(6px);box-shadow:var(--card-shadow);border:1px solid var(--glass-border)}
@@ -50,11 +55,30 @@ body{margin:0;font-family:'Merriweather', system-ui, -apple-system, 'Segoe UI', 
 .profile{display:flex;flex-direction:column;align-items:center;gap:.75rem}
 .profile img{width:100%;max-width:300px;height:auto;border-radius:12px;display:block;box-shadow:var(--card-shadow);border:1px solid rgba(15,18,32,0.04)}
 .profile{background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.85));padding:1rem;border-radius:12px}
-.bio{font-size:.95rem;color:var(--muted);text-align:center;line-height:1.5}
+.bio{font-size:.95rem;color:var(--bio-text);text-align:center;line-height:1.5;background:var(--bio-bg);border:1px solid var(--bio-border);padding:.9rem 1rem  .9rem 1.25rem;border-radius:10px;box-shadow:0 8px 20px rgba(19,24,34,0.04);max-width:360px}
+.bio{position:relative}
+.bio::before{content:'';position:absolute;left:10px;top:12px;bottom:12px;width:4px;background:var(--primary-color);border-radius:4px}
 .text-container{padding:0 1rem;text-align:center}
-.text-container h1{margin:0 0 .5rem;font-size:2.2rem}
-.text-container h1::after{content:'';display:block;width:48px;height:4px;background:var(--accent-gradient);margin-top:.6rem;border-radius:3px;box-shadow:0 6px 20px rgba(37,99,235,0.08)}
-.text-container p{margin:.25rem 0 .75rem;color:var(--muted)}
+.hero {padding:2rem 0}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:center}
+.hero-content h1{margin:0 0 .6rem;font-size:2rem;line-height:1.12}
+.hero-content .lead{margin:0 0 1rem;color:var(--muted);font-size:1.05rem}
+.hero-ctas{display:flex;gap:.75rem;align-items:center}
+.hero-ctas .icon{width:18px;height:18px;margin-right:.5rem;display:inline-block;vertical-align:middle}
+.hero-ctas .btn{display:inline-flex;align-items:center}
+
+.project-teaser{display:flex;gap:1rem;align-items:center}
+.project-thumb{width:140px;height:88px;object-fit:cover;border-radius:8px;border:1px solid rgba(15,18,32,0.04);box-shadow:0 6px 22px rgba(19,24,34,0.06)}
+.project-teaser-body{flex:1}
+.project-teaser .btn{margin-top:.6rem}
+.project-teaser:hover{transform:translateY(-4px);box-shadow:0 14px 44px rgba(19,24,34,0.06)}
+
+/* Icon inside buttons */
+.btn .icon{width:16px;height:16px;margin-right:.5rem;display:inline-block}
+.profile-card{display:flex;justify-content:center}
+.profile{display:flex;flex-direction:column;align-items:center;gap:.75rem}
+.profile img{max-width:260px}
+.profile .bio{max-width:320px}
 
 /* Buttons */
 .btn{display:inline-block;text-decoration:none;padding:.55rem 1.15rem;border-radius:10px;border:1px solid transparent;font-weight:700;letter-spacing:0.1px}
@@ -80,6 +104,13 @@ body{margin:0;font-family:'Merriweather', system-ui, -apple-system, 'Segoe UI', 
 /* Make the projects grid responsive and accessible */
 .projects-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:.75rem}
 @media(min-width:700px){.projects-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* Featured teaser */
+.featured{padding:1.2rem 0}
+.featured h2{margin-top:0;margin-bottom:0.6rem}
+.project-teaser{background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(245,249,255,0.9));padding:1rem;border-radius:10px;border:1px solid rgba(15,18,32,0.04);box-shadow:0 8px 22px rgba(19,24,34,0.04)}
+.project-teaser h3{margin:.1rem 0 .4rem}
+.project-teaser p{margin:.4rem 0}
 
 /* Visually hidden utility (for accessible labels) */
 .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
@@ -113,19 +144,34 @@ footer{padding:1.25rem 0;text-align:center;color:var(--muted);font-size:.95rem;b
 
 /* Larger screens */
 @media (min-width:700px){
-    .flex-container{grid-template-columns:340px 1fr;gap:2rem;padding:3rem 0}
+    .hero-grid{grid-template-columns:1fr 340px;gap:2rem;padding:3rem 0}
     .profile{align-items:flex-start}
     .profile img{margin:0}
     .bio{text-align:left}
     .text-container{text-align:left}
     .nav-list a{padding:.4rem .75rem}
+    .project-thumb{width:160px;height:96px}
 }
 
 /* Mobile and small screens: reduce visual heavy styles for performance */
 @media (max-width:700px){
     .site-nav{background:transparent;box-shadow:none;backdrop-filter:none;border-color:transparent;padding:0.65rem}
     .profile{background:transparent;padding:0}
+    .project-teaser{flex-direction:row}
+    /* Mobile nav: hide list by default and show via .nav-open on .site-nav */
+    .site-nav .nav-toggle{display:inline-flex;margin-right:.5rem;border:0;background:transparent;padding:.35rem;border-radius:8px}
+    .nav-toggle .hamburger{width:22px;height:2px;background:var(--text-color);display:block;position:relative}
+    .nav-toggle .hamburger::after,.nav-toggle .hamburger::before{content:'';position:absolute;left:0;width:22px;height:2px;background:var(--text-color)}
+    .nav-toggle .hamburger::before{top:-6px}
+    .nav-toggle .hamburger::after{bottom:-6px}
+    .nav-list{display:none;position:absolute;top:64px;left:0;right:0;background:var(--surface);margin:0;padding:1rem;border-top:1px solid rgba(15,18,32,0.04);box-shadow:0 10px 30px rgba(19,24,34,0.06);flex-direction:column;gap:.5rem}
+    .site-nav.nav-open .nav-list{display:flex}
+    .nav-list a{display:block;padding:.8rem;border-radius:8px}
+    .nav-list a:hover{transform:none}
 }
+
+/* Skip link (visible on focus) */
+/* Skip link removed per user request */
 
 @media (prefers-reduced-motion: reduce){
     *{transition:none!important}

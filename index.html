@@ -9,8 +9,11 @@
   <div class="container">
   <header>
     <nav class="site-nav" aria-label="Main navigation">
+      <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
       <a class="brand" href="index.html">Home</a>
-      <ul class="nav-list">
+      <ul id="main-nav" class="nav-list">
         <li><a href="about.html">About Me</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="https://www.instagram.com/muhammed.mmdli1/" target="_blank" rel="noopener">Instagram</a></li>
@@ -26,24 +29,49 @@
       </ul>
       <!-- Nav indicator removed per user request -->
     </nav>
-    <div class="flex-container">
-      <div class="profile">
-        <img src="Images.JPG" alt="Mammadli Muhammad" width="300" height="400">
-        <div class="bio">
-          <p>Welcome! I’m an Information Technology student passionate about building creative digital solutions and improving my skills every day. I enjoy programming and web development, and I’m always exploring new ideas that combine technology and creativity. This portfolio showcases my projects, skills, and learning journey—feel free to explore!</p>
+    <section class="hero">
+      <div class="hero-grid container-inner">
+        <div class="hero-content">
+          <h1>Hey friends! I'm <strong>Mammadli Muhammad</strong></h1>
+          <p class="lead">I’m an Information Technology student at <strong>ADA University</strong>. I build web projects, learn systems, and enjoy turning ideas into small, useful experiments.</p>
+          <div class="hero-ctas">
+            <a class="btn primary" href="projects.html">
+              <svg class="icon icon-list" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>View Projects</span>
+            </a>
+            <a class="btn secondary" href="about.html#contact">
+              <svg class="icon icon-mail" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5v7A2.5 2.5 0 005.5 18h13a2.5 2.5 0 002.5-2.5v-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 8.5l-9 6-9-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Contact</span>
+            </a>
+          </div>
         </div>
+        <aside class="profile-card">
+          <div class="profile">
+            <img src="Images.JPG" alt="Mammadli Muhammad" width="300" height="400">
+            <div class="bio">
+              <p>Welcome! I’m an Information Technology student passionate about building creative digital solutions and improving my skills every day. I enjoy programming and web development, and I’m always exploring new ideas that combine technology and creativity. This portfolio showcases my projects, skills, and learning journey—feel free to explore!</p>
+            </div>
+          </div>
+        </aside>
       </div>
-      <div class="text-container">
-            <h1>Hey friends!</h1>
-            <p>I am Mammadli Muhammad, a student of <strong>ADA university</strong> with a major of Information technology.</p>
-            <a href="https://www.instagram.com/muhammed.mmdli1/" class="btn primary" target="_blank" rel="noopener">Follow me on Instagram</a>
-        </div>
-    </div>  
+    </section>
   </header>
   <main>
     <!-- About section moved to about.html -->
     <!-- Projects have moved to projects.html -->
-    <section id="contact">
+    <section class="featured container-inner">
+      <h2>Featured project</h2>
+      <div class="project-teaser">
+        <img class="project-thumb" src="https://img.youtube.com/vi/LEz8D-mrqok/hqdefault.jpg" alt="Thumbnail for Project 1: How does hardware work?">
+        <div class="project-teaser-body">
+          <h3>Project 1: How does hardware work?</h3>
+          <p>Short demo of NOT, AND and OR gates built with transistors on a breadboard. <a href="projects.html#project-hardware">Read more</a></p>
+          <p><a class="btn primary" href="projects.html#project-hardware"><svg class="icon icon-open" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Open project</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container-inner">
       <h2>Contact</h2>
       <p>You can reach me on Instagram or through this website once contact options are available.</p>
     </section>
@@ -60,6 +88,41 @@
   <script>
     // small JS to update the footer year
     document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    // Mobile nav toggle and keyboard handling
+    (function(){
+      const nav = document.querySelector('.site-nav');
+      const toggle = nav && nav.querySelector('.nav-toggle');
+      const navList = nav && nav.querySelector('.nav-list');
+
+      function closeNav(){
+        nav.classList.remove('nav-open');
+        if(toggle) toggle.setAttribute('aria-expanded','false');
+      }
+
+      function openNav(){
+        nav.classList.add('nav-open');
+        if(toggle) toggle.setAttribute('aria-expanded','true');
+      }
+
+      if(toggle){
+        toggle.addEventListener('click', ()=>{
+          if(nav.classList.contains('nav-open')) closeNav(); else openNav();
+        });
+      }
+
+      // close on Escape
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape') closeNav();
+      });
+
+      // close when clicking outside the nav (mobile)
+      document.addEventListener('click', (e)=>{
+        if(!nav) return;
+        if(nav.classList.contains('nav-open') && !nav.contains(e.target) && !toggle.contains(e.target)) closeNav();
+      });
+    })();
   </script>
   <script>
     // Section heading animation for in-page anchors (simplified)
