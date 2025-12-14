@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>About — Mammadli Muhammad</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+  <header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">Home</a>
+      <ul class="nav-list">
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="https://www.instagram.com/muhammed.mmdli1/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://github.com/Muhammad26577" target="_blank" rel="noopener" class="social-link" aria-label="Muhammad's GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.477 2 2 6.485 2 12.02c0 4.426 2.865 8.18 6.839 9.504.5.09.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.607.069-.607 1.003.07 1.531 1.03 1.531 1.03.892 1.528 2.341 1.087 2.91.832.091-.647.35-1.087.636-1.337-2.22-.253-4.555-1.113-4.555-4.95 0-1.093.39-1.987 1.03-2.687-.103-.253-.447-1.272.099-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.91-1.296 2.748-1.026 2.748-1.026.547 1.378.203 2.397.1 2.65.64.7 1.03 1.594 1.03 2.687 0 3.848-2.338 4.693-4.566 4.942.36.31.68.92.68 1.855 0 1.338-.012 2.419-.012 2.748 0 .268.18.577.688.48C19.138 20.196 22 16.444 22 12.02 22 6.485 17.523 2 12 2z" fill="currentColor"></path>
+            </svg>
+            <span class="visually-hidden">GitHub</span>
+          </a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <!-- Nav indicator removed per user request -->
+    </nav>
+  </header>
+  <main>
+    <section id="about" class="about-me">
+      <div class="container-inner">
+        <h1>About Me</h1>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>I am an Information Technology student with a strong interest in software development, web technologies, and digital solutions. I enjoy building small projects, learning new tools, and improving my problem-solving skills through hands-on practice. I am motivated to grow step by step and apply my knowledge to real-world projects.</p>
+            <h3>Education &amp; Experience</h3>
+            <p><strong>Information Technology Student</strong><br>Undergraduate student focused on programming fundamentals, web development, and practical IT skills.</p>
+            <h4>Experience</h4>
+            <ul class="experience-list">
+              <li>Personal projects: simple websites and small coding projects</li>
+              <li>Learning tools: Python, HTML/CSS, C++ (basics), Git</li>
+            </ul>
+            <h3>More About Me</h3>
+            <p>I enjoy exploring new technologies, learning by doing, and working on practical projects that help me build a strong technical foundation.</p>
+            <p>Want to connect or collaborate? Visit my <a class="link-inline" href="https://github.com/Muhammad26577" target="_blank" rel="noopener">GitHub</a>, see my <a class="link-inline" href="https://www.codecademy.com/profiles/byte9470544897" target="_blank" rel="noopener" aria-label="Muhammad's Codecademy">Codecademy</a>, or return to <a href="index.html#projects">Projects</a>.</p>
+            <p>Featured Project: <a href="index.html#project-hardware">Project 1 — How does hardware work?</a></p>
+          </div>
+          <aside class="about-meta" aria-labelledby="about-meta-title">
+            <h3 id="about-meta-title">Quick facts</h3>
+            <ul>
+              <li><strong>Education:</strong> ADA University — IT</li>
+              <li><strong>Focus:</strong> Web development, clean code, UI/UX</li>
+              <li><strong>Location:</strong> (Add your city/country)</li>
+              <li><strong>Availability:</strong> Open to collaborations and internships</li>
+            </ul>
+            <h4>Skills</h4>
+            <ul class="skills-list">
+              <li>HTML &amp; CSS</li>
+              <li>JavaScript</li>
+              <li>Responsive design</li>
+              <li>Git &amp; GitHub</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; <span id="year"></span> Mammadli Muhammad</p>
+    <p>
+      <a href="https://github.com/Muhammad26577" target="_blank" rel="noopener" class="social-link">GitHub</a> &nbsp;|&nbsp;
+      <a href="https://www.instagram.com/muhammed.mmdli1/" target="_blank" rel="noopener" class="social-link">Instagram</a>
+    </p>
+  </footer>
+  </div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    // Section heading animation for in-page anchors (simplified)
+    (function (){
+      const nav = document.querySelector('.site-nav');
+      const links = nav ? Array.from(nav.querySelectorAll('.nav-list a')) : [];
+      const sectionLinks = links.filter(l => l.getAttribute('href') && l.getAttribute('href').startsWith('#'));
+
+      function animateHeading(section) {
+        if(!section) return;
+        const heading = section.querySelector('h2,h1,h3');
+        if(!heading) return;
+        heading.classList.add('highlight-animate');
+        setTimeout(()=> heading.classList.remove('highlight-animate'), 850);
+      }
+
+      sectionLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        const id = href.slice(1);
+        const section = document.getElementById(id);
+        if(!section) return;
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          section.scrollIntoView({behavior:'smooth', block:'start'});
+          setTimeout(()=> animateHeading(section), 370);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

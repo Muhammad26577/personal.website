@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
+:root {
+    /* Color system */
+    --bg-start: #f6f8ff;
+    --bg-end: #ffffff;
+    --surface: #ffffff;
+    --text-color: #0b1220; /* darker text */
+    --muted: #5f6b77; /* slightly softer */
+    --primary-color: #2563eb; /* vivid blue */
+    --secondary-color: #7c3aed; /* purple accent */
+    --accent-gradient: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    --card-shadow: 0 10px 28px rgba(19,24,34,0.06);
+    --bg-spot: radial-gradient(circle at 8% 10%, rgba(124,58,237,0.06), transparent 6%);
+    --glass-bg: rgba(255,255,255,0.6);
+    --glass-border: rgba(16,24,40,0.04);
+}
+
+/* Reset & base */
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:'Merriweather', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:var(--text-color); background:var(--bg-spot),linear-gradient(180deg,var(--bg-start),var(--bg-end)); line-height:1.6}
+
+/* Utility */
+.container{max-width:1100px;margin:0 auto;padding:0 1rem}
+
+/* Header / Nav */
+.site-nav{display:flex;align-items:center;padding:1rem 0;background:var(--glass-bg);padding:0.8rem 1rem;border-radius:10px;backdrop-filter:blur(6px);box-shadow:var(--card-shadow);border:1px solid var(--glass-border)}
+.container header{border-bottom:1px solid rgba(15,18,32,0.04);padding-bottom:0.75rem;margin-bottom:0.6rem}
+.site-nav .brand{font-weight:700;color:var(--text-color);text-decoration:none;font-size:1.125rem;padding:0.35rem .5rem;border-radius:8px;transition:transform 220ms ease, box-shadow 220ms ease}
+.site-nav .brand:hover,.site-nav .brand:focus{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,99,235,0.06)}
+.nav-list{display:flex;gap:1rem;list-style:none;margin:0;padding:0;flex:1;justify-content:center}
+.nav-list a{display:inline-block;color:var(--text-color);text-decoration:none;padding:.35rem .6rem;border-radius:8px;font-weight:600;transform:translateY(0);transition:transform 220ms cubic-bezier(.2,.8,.2,1),background 220ms ease,color 220ms ease,box-shadow 220ms ease;will-change:transform}
+.nav-list a:hover,.nav-list a:focus{color:#ffffff;background:var(--accent-gradient);transform:translateY(-6px) scale(1.04);box-shadow:0 10px 26px rgba(37,99,235,0.12)}
+/* active (touch / click) state should also lift the nav item */
+.nav-list a:active{transform:translateY(-4px) scale(1.04)}
+/* More accessible focus-visible state */
+.nav-list a:focus-visible{outline:4px solid rgba(0,122,204,0.12);outline-offset:4px}
+
+/* Animated nav indicator that moves under nav items */
+.site-nav{position:relative}
+
+/* Social icon links */
+.social-link{display:inline-flex;align-items:center;color:var(--muted);text-decoration:none}
+.social-link svg{margin-right:.45rem;display:inline-block}
+
+
+/* Hero layout */
+.flex-container{display:grid;grid-template-columns:1fr;gap:1.5rem;align-items:center;padding:2rem 0}
+.profile{display:flex;flex-direction:column;align-items:center;gap:.75rem}
+.profile img{width:100%;max-width:300px;height:auto;border-radius:12px;display:block;box-shadow:var(--card-shadow);border:1px solid rgba(15,18,32,0.04)}
+.profile{background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.85));padding:1rem;border-radius:12px}
+.bio{font-size:.95rem;color:var(--muted);text-align:center;line-height:1.5}
+.text-container{padding:0 1rem;text-align:center}
+.text-container h1{margin:0 0 .5rem;font-size:2.2rem}
+.text-container h1::after{content:'';display:block;width:48px;height:4px;background:var(--accent-gradient);margin-top:.6rem;border-radius:3px;box-shadow:0 6px 20px rgba(37,99,235,0.08)}
+.text-container p{margin:.25rem 0 .75rem;color:var(--muted)}
+
+/* Buttons */
+.btn{display:inline-block;text-decoration:none;padding:.55rem 1.15rem;border-radius:10px;border:1px solid transparent;font-weight:700;letter-spacing:0.1px}
+.btn.primary{background:var(--accent-gradient);color:white;box-shadow:0 12px 30px rgba(37,99,235,0.12)}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(37,99,235,0.14)}
+.btn.secondary{background:transparent;color:var(--primary-color);border-color:rgba(37,99,235,0.12)}
+.btn.secondary:hover{background:rgba(37,99,235,0.04)}
+.btn:focus{outline:3px solid rgba(0,122,204,0.18)}
+
+/* Projects grid and cards */
+.projects-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:.75rem}
+.project-card{padding:1.15rem;border-radius:12px;background:var(--surface);border:1px solid rgba(15,18,32,0.04);box-shadow:var(--card-shadow);transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(19,24,34,0.08)}
+.project-card h3{margin-top:0}
+.project-card p{margin:.5rem 0}
+
+/* Responsive video embed inside project cards */
+.project-media{margin-top: .5rem}
+.video-wrap{position:relative;padding-top:56.25%;overflow:hidden;border-radius:8px;box-shadow:0 8px 28px rgba(2,6,23,0.06)}
+.video-wrap iframe{position:absolute;left:0;top:0;width:100%;height:100%;border:0}
+.project-card .btn{margin-right:.5rem;margin-top:.5rem}
+
+/* Make the projects grid responsive and accessible */
+.projects-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:.75rem}
+@media(min-width:700px){.projects-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* Visually hidden utility (for accessible labels) */
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* About Me section */
+.about-me{background:linear-gradient(180deg, #fff, #f7fbff);padding:2rem 0;border-top:1px solid rgba(15,18,32,0.04)}
+.about-me .container-inner{max-width:920px;margin:0 auto;padding:0 1rem}
+.about-grid{display:grid;grid-template-columns:1fr;gap:1rem;align-items:start}
+.about-text p{margin:0 0 .9rem;color:var(--text-color)}
+.about-text h3{margin:1rem 0 .5rem;font-size:1.1rem}
+.about-text h4{margin:.75rem 0 .5rem;font-size:1rem}
+.experience-list{list-style:disc;margin-left:1.1rem;padding-left:.6rem;color:var(--muted)}
+.link-inline{color:var(--primary-color);text-decoration:none}
+.link-inline:hover{text-decoration:underline}
+.about-meta{background:var(--surface);padding:1rem;border-radius:12px;border:1px solid rgba(15,18,32,0.04);box-shadow:var(--card-shadow)}
+.about-meta h3{margin-top:0}
+.skills-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.skills-list li{background:linear-gradient(180deg, rgba(120,130,250,0.06), rgba(120,130,250,0.02));padding:.45rem .65rem;border-radius:8px;font-size:.95rem}
+
+@media(min-width:700px){
+    .about-grid{grid-template-columns:2fr 1fr;gap:1.5rem}
+}
+
+/* Content sections */
+main{padding:1.5rem 0}
+section{padding:1.25rem 0;border-top:1px solid #eee}
+section h2{margin-top:0}
+
+/* Footer */
+footer{padding:1.25rem 0;text-align:center;color:var(--muted);font-size:.95rem;background:linear-gradient(180deg,transparent,rgba(15,18,32,0.01));border-top:1px solid rgba(15,18,32,0.02);margin-top:1.5rem}
+
+/* Larger screens */
+@media (min-width:700px){
+    .flex-container{grid-template-columns:340px 1fr;gap:2rem;padding:3rem 0}
+    .profile{align-items:flex-start}
+    .profile img{margin:0}
+    .bio{text-align:left}
+    .text-container{text-align:left}
+    .nav-list a{padding:.4rem .75rem}
+}
+
+/* Mobile and small screens: reduce visual heavy styles for performance */
+@media (max-width:700px){
+    .site-nav{background:transparent;box-shadow:none;backdrop-filter:none;border-color:transparent;padding:0.65rem}
+    .profile{background:transparent;padding:0}
+}
+
+@media (prefers-reduced-motion: reduce){
+    *{transition:none!important}
+}
+
+/* Small tweaks for images and accessibility */
+img{max-width:100%;height:auto;display:block}
+
+/* Give the site-root some spacing */
+.container + header{padding-top:0}
+
+/* Headings highlight animation used on section activation */
+.highlight-animate{display:inline-block;transform:translateY(-4px);transition:transform 400ms cubic-bezier(.2,.8,.2,1);box-shadow:0 4px 14px rgba(0,122,204,0.08);}
+
+/* Make section headings lift slightly when hovered/focused (home & other sections) */
+main h1, main h2, main h3, .text-container h1, .about-meta h3{display:inline-block;transform:translateY(0);transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease}
+main h1:hover, main h2:hover, main h3:hover, .text-container h1:hover, .about-meta h3:hover,
+main h1:focus, main h2:focus, main h3:focus, .text-container h1:focus, .about-meta h3:focus{
+    transform:translateY(-6px);box-shadow:0 6px 22px rgba(0,122,204,0.08)
+}
+/* Support keyboard focus state */
+main h1:focus-visible, main h2:focus-visible, main h3:focus-visible, .text-container h1:focus-visible{outline:4px solid rgba(0,122,204,0.08);outline-offset:6px}
+
+@media (prefers-reduced-motion: reduce){
+    main h1, main h2, main h3, .text-container h1, .about-meta h3{transition:none!important;transform:none!important}
+}

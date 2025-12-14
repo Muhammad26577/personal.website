@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mammadli Muhammad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+  <header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">Home</a>
+      <ul class="nav-list">
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="https://www.instagram.com/muhammed.mmdli1/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.codecademy.com/profiles/byte9470544897" target="_blank" rel="noopener" class="social-link" aria-label="Muhammad's Codecademy">Codecademy</a></li>
+        <li><a href="https://github.com/Muhammad26577" target="_blank" rel="noopener" class="social-link" aria-label="Muhammad's GitHub">
+            <!-- GitHub Icon -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.477 2 2 6.485 2 12.02c0 4.426 2.865 8.18 6.839 9.504.5.09.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.607.069-.607 1.003.07 1.531 1.03 1.531 1.03.892 1.528 2.341 1.087 2.91.832.091-.647.35-1.087.636-1.337-2.22-.253-4.555-1.113-4.555-4.95 0-1.093.39-1.987 1.03-2.687-.103-.253-.447-1.272.099-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.91-1.296 2.748-1.026 2.748-1.026.547 1.378.203 2.397.1 2.65.64.7 1.03 1.594 1.03 2.687 0 3.848-2.338 4.693-4.566 4.942.36.31.68.92.68 1.855 0 1.338-.012 2.419-.012 2.748 0 .268.18.577.688.48C19.138 20.196 22 16.444 22 12.02 22 6.485 17.523 2 12 2z" fill="currentColor"></path>
+            </svg>
+            <span class="visually-hidden">GitHub</span>
+          </a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <!-- Nav indicator removed per user request -->
+    </nav>
+    <div class="flex-container">
+      <div class="profile">
+        <img src="Images.JPG" alt="Mammadli Muhammad" width="300" height="400">
+        <div class="bio">
+          <p>Welcome! I’m an Information Technology student passionate about building creative digital solutions and improving my skills every day. I enjoy programming and web development, and I’m always exploring new ideas that combine technology and creativity. This portfolio showcases my projects, skills, and learning journey—feel free to explore!</p>
+        </div>
+      </div>
+      <div class="text-container">
+            <h1>Hey friends!</h1>
+            <p>I am Mammadli Muhammad, a student of <strong>ADA university</strong> with a major of Information technology.</p>
+            <a href="https://www.instagram.com/muhammed.mmdli1/" class="btn primary" target="_blank" rel="noopener">Follow me on Instagram</a>
+        </div>
+    </div>  
+  </header>
+  <main>
+    <!-- About section moved to about.html -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <p>My projects will appear here soon. Meanwhile, check my <a class="link-inline" href="https://github.com/Muhammad26577" target="_blank" rel="noopener" aria-label="Muhammad's GitHub">GitHub</a> for the latest repositories:</p>
+      <div class="projects-grid">
+        <!-- GitHub profile card removed from Projects (kept in header/footer). Projects listed below -->
+        <article class="project-card" id="project-hardware" aria-labelledby="project-hardware-title" role="group">
+          <h3 id="project-hardware-title">Project 1: How does hardware work?</h3>
+          <p>Our team built NOT, AND, and OR logic gates using transistors and breadboard circuitry at ADA University's lab. The project showcases how basic hardware logic functions are implemented using discrete components and wiring techniques.</p>
+          <p>Key highlights: <strong>transistors</strong> (BJTs), breadboard wiring, and hands-on circuit debugging.</p>
+          <div class="project-media">
+            <!-- Responsive embedded YouTube video; provide clear title + link -->
+            <div class="video-wrap" aria-hidden="false">
+              <iframe title="Project 1: How does hardware work? (ADA University lab demo)" src="https://www.youtube.com/embed/LEz8D-mrqok" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <p class="visually-hidden" id="project1-desc">Team demo video for NOT, AND and OR gates constructed in a breadboard with transistors, including explanations and a live demo.</p>
+          </div>
+          <p>
+            <a class="btn primary" href="https://youtu.be/LEz8D-mrqok?si=sBH_x5ic4UFga5j6" target="_blank" rel="noopener" aria-describedby="project1-desc">Watch on YouTube</a>
+            <a class="btn secondary" href="/about.html#contact">Contact team</a>
+          </p>
+        </article>
+      </div>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>You can reach me on Instagram or through this website once contact options are available.</p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; <span id="year"></span> Mammadli Muhammad</p>
+      <p>
+      <a href="https://github.com/Muhammad26577" target="_blank" rel="noopener" class="social-link">GitHub</a> &nbsp;|&nbsp;
+      <a href="https://www.instagram.com/muhammed.mmdli1/" target="_blank" rel="noopener" class="social-link">Instagram</a> &nbsp;|&nbsp;
+      <a href="https://www.codecademy.com/profiles/byte9470544897" target="_blank" rel="noopener" class="social-link" aria-label="Muhammad's Codecademy">Codecademy</a>
+    </p>
+  </footer>
+  </div>
+  <script>
+    // small JS to update the footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    // Section heading animation for in-page anchors (simplified)
+    (function (){
+      const nav = document.querySelector('.site-nav');
+      const links = nav ? Array.from(nav.querySelectorAll('.nav-list a')) : [];
+      const sectionLinks = links.filter(l => l.getAttribute('href') && l.getAttribute('href').startsWith('#'));
+
+      function animateHeading(section) {
+        if(!section) return;
+        const heading = section.querySelector('h2,h1,h3');
+        if(!heading) return;
+        heading.classList.add('highlight-animate');
+        setTimeout(()=> heading.classList.remove('highlight-animate'), 850);
+      }
+
+      sectionLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        const id = href.slice(1);
+        const section = document.getElementById(id);
+        if(!section) return;
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          section.scrollIntoView({behavior:'smooth', block:'start'});
+          setTimeout(()=> animateHeading(section), 370);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
