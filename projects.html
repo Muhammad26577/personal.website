@@ -81,6 +81,10 @@
       if(toggle){
         toggle.addEventListener('click', ()=> nav.classList.contains('nav-open') ? closeNav() : openNav());
       }
+      // Close nav on link click
+      const navLinks = nav.querySelectorAll('.nav-list a');
+      navLinks.forEach(l => l.addEventListener('click', () => closeNav()));
+      const brand = nav.querySelector('.brand'); if(brand) brand.addEventListener('click', closeNav);
       document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeNav(); });
       document.addEventListener('click', (e)=>{ if(nav && nav.classList.contains('nav-open') && !nav.contains(e.target) && !toggle.contains(e.target)) closeNav(); });
     })();

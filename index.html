@@ -111,6 +111,15 @@
           if(nav.classList.contains('nav-open')) closeNav(); else openNav();
         });
       }
+      // Close nav after clicking any nav link (helps on mobile so state doesn't persist)
+      const navLinks = nav.querySelectorAll('.nav-list a');
+      navLinks.forEach(l => l.addEventListener('click', () => {
+        // allow navigation to proceed, but close the menu for mobile
+        closeNav();
+      }));
+      // Close nav when clicking the brand/Home link as well
+      const brand = nav.querySelector('.brand');
+      if(brand) brand.addEventListener('click', closeNav);
 
       // close on Escape
       document.addEventListener('keydown', (e)=>{
