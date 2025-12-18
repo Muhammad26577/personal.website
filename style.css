@@ -68,6 +68,11 @@ body{margin:0;font-family:'Merriweather', system-ui, -apple-system, 'Segoe UI', 
 .hero-ctas .btn{display:inline-flex;align-items:center}
 
 .project-teaser{display:flex;gap:1rem;align-items:center}
+.projects-section{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2.25rem 0;min-height:60vh}
+.projects-section h2,.projects-section p{max-width:920px;text-align:center}
+@media (max-width:700px){
+    .projects-section{min-height:auto;padding:1rem 0;justify-content:flex-start}
+}
 .project-thumb{width:140px;height:88px;object-fit:cover;border-radius:8px;border:1px solid rgba(15,18,32,0.04);box-shadow:0 6px 22px rgba(19,24,34,0.06)}
 .project-teaser-body{flex:1}
 .project-teaser .btn{margin-top:.6rem}
